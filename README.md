@@ -22,8 +22,33 @@ $ brew install suzuki-shunsuke/asciinema-trim/asciinema-trim
 ## How to use
 
 1. Prepare for the input record file
-1. Insert times you want to trim in the file
+1. Insert time you want to trim in the file
 1. Run `asciinema-trim` then trimmed record file is generated
+
+e.g.
+
+AS IS
+
+```
+[28.024765, "o", "h"]
+[30.087933, "o", "e"]
+```
+
+Trim 2 seconds.
+
+```
+[28.024765, "o", "h"]
+2
+[30.087933, "o", "e"]
+```
+
+Float64 is available.
+
+```
+[28.024765, "o", "h"]
+1.5
+[30.087933, "o", "e"]
+```
 
 ## Usage
 
