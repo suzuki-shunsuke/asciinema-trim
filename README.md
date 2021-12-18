@@ -52,6 +52,59 @@ There are three files.
 $ diff raw.cast input.cast
 ```
 
+<details>
+
+```diff
+2,32c2
+< [2.054084, "o", "\u001b]7;file://ShunsukenoMacBook-Pro.local/Users/shunsuke-suzuki/repos/src/github.com/suzuki-shunsuke/asciinema-trim/examples\u0007"]
+< [2.057998, "o", "\u001b]0;~/repos/src/github.com/suzuki-shunsuke/asciinema-trim/examples\u0007"]
+< [2.065518, "o", "\r\n"]
+< [2.273695, "o", "\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[34m~/repos/src/github.com/suzuki-shunsuke/asciinema-trim/examples\u001b[39m\r\n\r\u001b[35m❯\u001b[39m \u001b[K\u001b[?2004h"]
+< [2.321245, "o", "\r\r\u001b[A\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[34m~/repos/src/github.com/suzuki-shunsuke/asciinema-trim/examples\u001b[39m \u001b[38;5;242mfeat/first-pr\u001b[39m\r\n\r\u001b[35m❯\u001b[39m \u001b[K"]
+< [2.355236, "o", "\r\r\u001b[A\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[34m~/repos/src/github.com/suzuki-shunsuke/asciinema-trim/examples\u001b[39m \u001b[38;5;242mfeat/first-pr*\u001b[39m\r\n\r\u001b[35m❯\u001b[39m \u001b[K"]
+< [6.816005, "o", "c"]
+< [6.989229, "o", "\bco"]
+< [7.263569, "o", "n"]
+< [7.471234, "o", "f"]
+< [7.977468, "o", "s"]
+< [8.194928, "o", "e"]
+< [8.452856, "o", "t"]
+< [9.019689, "o", "\b \b"]
+< [9.201359, "o", "\b \b"]
+< [9.30929, "o", "\b \b"]
+< [9.725683, "o", "t"]
+< [9.890072, "o", "e"]
+< [10.01908, "o", "s"]
+< [10.174331, "o", "t"]
+< [10.639005, "o", " "]
+< [11.030146, "o", "-"]
+< [11.168158, "o", "-"]
+< [11.473176, "o", "v"]
+< [11.573134, "o", "e"]
+< [11.709366, "o", "s"]
+< [12.003549, "o", "e"]
+< [12.220146, "o", "i"]
+< [13.637836, "o", "\u001b[?2004l\r\r\n"]
+< [13.638194, "o", "\u001b]0;examples: conftest --vesei\u0007"]
+< [14.225163, "o", "Error: unknown flag: --vesei\r\n"]
+---
+> 14
+53,56c23
+< [20.33593, "o", "n"]
+< [20.835619, "o", "o"]
+< [21.225327, "o", "\b \b"]
+< [21.347125, "o", "\b \b"]
+---
+> 2
+65a33
+> 3
+```
+
+</details>
+
+* AS IS: https://asciinema.org/a/457022?autoplay=1
+* TO BE: https://asciinema.org/a/457025?autoplay=1
+
 ## Release Note
 
 [GitHub Releases](https://github.com/suzuki-shunsuke/asciinema-trim/releases)
