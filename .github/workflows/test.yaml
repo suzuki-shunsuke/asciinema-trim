@@ -1,0 +1,42 @@
+---
+name: test
+on:
+  push:
+    branches: [main]
+    tags: [v*]
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: '1.17'
+
+    - uses: int128/aqua-action@v1
+      with:
+        version: v0.8.6 # renovate: depName=aquaproj/aqua
+
+    - uses: suzuki-shunsuke/github-action-golangci-lint@v0.1.1
+
+    - run: go test -v ./... -race -covermode=atomic
+
+    - name: Generate token
+      id: generate_token
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: tibdex/github-app-token@v1
+      with:
+        app_id: ${{ secrets.APP_ID }}
+        private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
+    - name: Run GoReleaser
+      uses: goreleaser/goreleaser-action@v2
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        version: latest
+        args: release --rm-dist
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        HOMEBREW_TAP_GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
