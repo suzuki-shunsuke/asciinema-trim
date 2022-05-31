@@ -1,13 +1,16 @@
 # asciinema-trim
 
-Trim [asciinema](https://asciinema.org/)'s record file
+Edit [asciinema](https://asciinema.org/)'s record file
+
+* Trimming
+* Change the playback speed
 
 ## Motivation
 
 [asciinema](https://github.com/asciinema/asciinema) is an awesome project to record and share your terminal sessions.
 
-After recoding the session, sometimes you would like to trim the session.
-asciinema-trim is a CLI to trim the record file.
+After recoding the session, sometimes you would like to trim the session, or change the playback speed.
+asciinema-trim is a CLI to trim the record file and change the playback speed.
 
 ## Install
 
@@ -24,6 +27,8 @@ $ brew install suzuki-shunsuke/asciinema-trim/asciinema-trim
 1. Prepare for the input record file
 1. Insert time you want to trim in the file
 1. Run `asciinema-trim` then trimmed record file is generated
+
+### Trimming
 
 e.g.
 
@@ -42,12 +47,26 @@ Trim 2 seconds.
 [30.087933, "o", "e"]
 ```
 
-Float64 is available.
+Float64 is also available.
 
 ```
 [28.024765, "o", "h"]
 1.5
 [30.087933, "o", "e"]
+```
+
+### Change the speed
+
+Set the playback speed to 2x.
+
+```
+*2
+```
+
+Float64 is also available.
+
+```
+*1.5
 ```
 
 ## Usage

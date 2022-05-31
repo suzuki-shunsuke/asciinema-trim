@@ -50,6 +50,8 @@ type LDFlags struct {
 	Date    string
 }
 
+var errRecordFileRequired = errors.New("record file is needed")
+
 func (runner *Runner) Run(ctx context.Context) error {
 	cArgs := parseArgs()
 	args := flag.Args()
@@ -65,7 +67,7 @@ func (runner *Runner) Run(ctx context.Context) error {
 	}
 
 	if len(args) == 0 {
-		return errors.New("record file is needed")
+		return errRecordFileRequired
 	}
 	param := &controller.Param{
 		CastFile: args[0],
