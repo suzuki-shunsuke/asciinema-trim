@@ -27,11 +27,16 @@ type State struct {
 	Delta      float64
 }
 
+var (
+	errSpeedMustBeGreaterThanZero = errors.New("speed must be greater than zero")
+	errCommaIsntFound             = errors.New(`"," isn't found`)
+)
+
 func parseLine(txt string, state *State) (string, error) {
 	if strings.HasPrefix(txt, "[") {
 		idx := strings.Index(txt, ",")
 		if idx == -1 {
-			return "", errors.New(`"," isn't found`)
+			return "", errCommaIsntFound
 		}
 		t, err := strconv.ParseFloat(txt[1:idx], 64) //nolint:gomnd
 		if err != nil {
@@ -52,7 +57,7 @@ func parseLine(txt string, state *State) (string, error) {
 			return "", fmt.Errorf("speed must be float64: %w", err)
 		}
 		if s <= 0 {
-			return "", fmt.Errorf("speed must be greater than zero: %w", err)
+			return "", errSpeedMustBeGreaterThanZero
 		}
 		state.Speed = s
 		return "", nil
