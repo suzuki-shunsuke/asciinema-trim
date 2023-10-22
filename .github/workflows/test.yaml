@@ -17,7 +17,7 @@ jobs:
 
     - uses: aquaproj/aqua-installer@36dc5833b04eb63f06e3bb818aa6b7a6e6db99a9 # v2.1.2
       with:
-        aqua_version: v2.15.1
+        aqua_version: v2.16.0
 
     - uses: suzuki-shunsuke/github-action-golangci-lint@4b6bb7682772359cf0e7959932803ca2ff998895 # v0.1.4
 
