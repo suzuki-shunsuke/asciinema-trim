@@ -16,9 +16,9 @@ jobs:
       with:
         go-version: '1.17'
 
-    - uses: aquaproj/aqua-installer@fd2089d1f56724d6456f24d58605e6964deae124 # v2.3.2
+    - uses: aquaproj/aqua-installer@6ce1f8848ec8e61f14d57bd5d7597057a6dd187c # v3.0.1
       with:
-        aqua_version: v2.29.0
+        aqua_version: v2.30.0
 
     - uses: suzuki-shunsuke/github-action-golangci-lint@4b6bb7682772359cf0e7959932803ca2ff998895 # v0.1.4
 
@@ -37,7 +37,7 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       with:
         version: latest
-        args: release --rm-dist
+        args: release --clean
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         HOMEBREW_TAP_GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
