@@ -27,7 +27,7 @@ jobs:
     - name: Generate token
       id: generate_token
       if: startsWith(github.ref, 'refs/tags/')
-      uses: tibdex/github-app-token@021a2405c7f990db57f5eae5397423dcc554159c # v1.7.0
+      uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
       with:
         app_id: ${{ secrets.APP_ID }}
         private_key: ${{ secrets.APP_PRIVATE_KEY }}
