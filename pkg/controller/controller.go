@@ -12,14 +12,14 @@ type Param struct {
 	CastFile string
 }
 
-func New(param *Param) (*Controller, error) {
+func New(_ *Param) (*Controller, error) {
 	return &Controller{
 		Writer: &simpleWriter{},
 	}, nil
 }
 
 type Writer interface {
-	Write(string)
+	Write(s string)
 }
 
 type simpleWriter struct{}

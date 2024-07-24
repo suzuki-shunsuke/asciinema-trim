@@ -38,7 +38,7 @@ func parseLine(txt string, state *State) (string, error) {
 		if idx == -1 {
 			return "", errCommaIsntFound
 		}
-		t, err := strconv.ParseFloat(txt[1:idx], 64) //nolint:gomnd
+		t, err := strconv.ParseFloat(txt[1:idx], 64)
 		if err != nil {
 			return "", fmt.Errorf("time must be float64: %w", err)
 		}
@@ -49,10 +49,10 @@ func parseLine(txt string, state *State) (string, error) {
 		state.Prev = a
 		state.ActualPrev = t
 		state.Delta = 0
-		return "[" + strconv.FormatFloat(a, 'f', -1, 64) + txt[idx:], nil //nolint:gomnd
+		return "[" + strconv.FormatFloat(a, 'f', -1, 64) + txt[idx:], nil
 	}
 	if strings.HasPrefix(txt, "*") {
-		s, err := strconv.ParseFloat(txt[1:], 64) //nolint:gomnd
+		s, err := strconv.ParseFloat(txt[1:], 64)
 		if err != nil {
 			return "", fmt.Errorf("speed must be float64: %w", err)
 		}
@@ -62,7 +62,7 @@ func parseLine(txt string, state *State) (string, error) {
 		state.Speed = s
 		return "", nil
 	}
-	a, err := strconv.ParseFloat(txt, 64) //nolint:gomnd
+	a, err := strconv.ParseFloat(txt, 64)
 	if err != nil {
 		return "", fmt.Errorf("trimmed time must be float64: %w", err)
 	}
@@ -94,7 +94,7 @@ func build(write func(string), file io.Reader) error {
 	return nil
 }
 
-func (ctrl *Controller) build(ctx context.Context, param *Param, file io.Reader) error { //nolint:unparam
+func (ctrl *Controller) build(_ context.Context, _ *Param, file io.Reader) error {
 	return build(ctrl.write, file)
 }
 
