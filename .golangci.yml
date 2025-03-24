@@ -1,16 +1,38 @@
----
+version: "2"
 linters:
-  enable-all: true
+  default: all
   disable:
-    - wsl
-    - err113
-    - lll
-    - godot
-    - nlreturn
-    - godox
-    - tagliatelle
-    - ireturn
-    - varnamelen
-    - exhaustruct
     - depguard
-    - tenv # WARN The linter 'tenv' is deprecated (since v1.64.0) due to: Duplicate feature in another linter. Replaced by usetesting.
+    - err113
+    - exhaustruct
+    - godot
+    - godox
+    - ireturn
+    - lll
+    - nlreturn
+    - tagliatelle
+    - varnamelen
+    - wsl
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gci
+    - gofmt
+    - gofumpt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
