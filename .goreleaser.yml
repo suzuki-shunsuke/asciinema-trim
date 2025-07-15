@@ -16,8 +16,8 @@ builds:
   - amd64
   - arm64
 release:
-  prerelease: true
-brews:
+  prerelease: "true"
+homebrew_casks:
 -
   # NOTE: make sure the url_template, the token and given repo (github or gitlab) owner and name are from the
   # same kind. We will probably unify this in the next major version like it is done with scoop.
@@ -46,7 +46,3 @@ brews:
   # Default is false.
   skip_upload: auto
 
-  # So you can `brew test` your formula.
-  # Default is empty.
-  test: |
-    system "#{bin}/asciinema-trim --version"
