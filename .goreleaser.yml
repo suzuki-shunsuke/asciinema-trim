@@ -50,7 +50,6 @@ homebrew_casks:
   # Default is false.
   skip_upload: auto
 
-
 sboms:
   - id: default
     disable: false
