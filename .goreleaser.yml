@@ -3,6 +3,10 @@ version: 2
 project_name: asciinema-trim
 archives:
 - name_template: "{{.ProjectName}}_{{.Os}}_{{.Arch}}"
+  files:
+    - LICENSE
+    - README.md
+    - third_party_licenses/**/*
 builds:
 - binary: asciinema-trim
   main: cmd/asciinema-trim/main.go
