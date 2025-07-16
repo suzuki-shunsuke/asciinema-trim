@@ -3,6 +3,10 @@ version: 2
 project_name: asciinema-trim
 archives:
 - name_template: "{{.ProjectName}}_{{.Os}}_{{.Arch}}"
+  files:
+    - LICENSE
+    - README.md
+    - third_party_licenses/**/*
 builds:
 - binary: asciinema-trim
   main: cmd/asciinema-trim/main.go
@@ -16,8 +20,8 @@ builds:
   - amd64
   - arm64
 release:
-  prerelease: true
-brews:
+  prerelease: "true"
+homebrew_casks:
 -
   # NOTE: make sure the url_template, the token and given repo (github or gitlab) owner and name are from the
   # same kind. We will probably unify this in the next major version like it is done with scoop.
@@ -38,15 +42,8 @@ brews:
   description: Trim asciinema's record file
   license: MIT
 
-  # Setting this will prevent goreleaser to actually try to commit the updated
-  # formula - instead, the formula file will be stored on the dist folder only,
-  # leaving the responsibility of publishing it to the user.
-  # If set to auto, the release will not be uploaded to the homebrew tap
-  # in case there is an indicator for prerelease in the tag e.g. v1.0.0-rc1
-  # Default is false.
-  skip_upload: auto
+  skip_upload: true
 
-  # So you can `brew test` your formula.
-  # Default is empty.
-  test: |
-    system "#{bin}/asciinema-trim --version"
+sboms:
+  - id: default
+    disable: false
