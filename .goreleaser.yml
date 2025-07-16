@@ -3,6 +3,10 @@ version: 2
 project_name: asciinema-trim
 archives:
 - name_template: "{{.ProjectName}}_{{.Os}}_{{.Arch}}"
+  files:
+    - LICENSE
+    - README.md
+    - third_party_licenses/**/*
 builds:
 - binary: asciinema-trim
   main: cmd/asciinema-trim/main.go
@@ -16,8 +20,8 @@ builds:
   - amd64
   - arm64
 release:
-  prerelease: true
-brews:
+  prerelease: "true"
+homebrew_casks:
 -
   # NOTE: make sure the url_template, the token and given repo (github or gitlab) owner and name are from the
   # same kind. We will probably unify this in the next major version like it is done with scoop.
@@ -46,7 +50,6 @@ brews:
   # Default is false.
   skip_upload: auto
 
-  # So you can `brew test` your formula.
-  # Default is empty.
-  test: |
-    system "#{bin}/asciinema-trim --version"
+sboms:
+  - id: default
+    disable: false
