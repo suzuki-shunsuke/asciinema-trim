@@ -13,7 +13,7 @@ asciinema-trim is a CLI to trim the record file and change the playback speed.
 
 * Homebrew
 * [aqua](https://aquaproj.github.io/)
-* [Download from GitHub Rleases](https://github.com/suzuki-shunsuke/asciinema-trim/releases)
+* [Download from GitHub Releases](https://github.com/suzuki-shunsuke/asciinema-trim/releases)
 
 ```console
 $ brew install suzuki-shunsuke/asciinema-trim/asciinema-trim
