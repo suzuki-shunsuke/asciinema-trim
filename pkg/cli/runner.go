@@ -52,7 +52,7 @@ type LDFlags struct {
 
 var errRecordFileRequired = errors.New("record file is needed")
 
-func (runner *Runner) Run(ctx context.Context) error {
+func (r *Runner) Run(ctx context.Context) error {
 	cArgs := parseArgs()
 	args := flag.Args()
 
@@ -62,7 +62,7 @@ func (runner *Runner) Run(ctx context.Context) error {
 	}
 
 	if cArgs.Version {
-		fmt.Fprintln(os.Stderr, runner.LDFlags.Version+" ("+runner.LDFlags.Commit+")")
+		fmt.Fprintln(os.Stderr, r.LDFlags.Version+" ("+r.LDFlags.Commit+")")
 		return nil
 	}
 
