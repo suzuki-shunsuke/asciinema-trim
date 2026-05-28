@@ -11,13 +11,13 @@ import (
 	"strings"
 )
 
-func (ctrl *Controller) Build(ctx context.Context, param *Param) error {
+func (c *Controller) Build(ctx context.Context, param *Param) error {
 	file, err := os.Open(param.CastFile)
 	if err != nil {
 		return fmt.Errorf("open a file: %w", err)
 	}
 	defer file.Close()
-	return ctrl.build(ctx, param, file)
+	return c.build(ctx, param, file)
 }
 
 type State struct {
@@ -94,10 +94,10 @@ func build(write func(string), file io.Reader) error {
 	return nil
 }
 
-func (ctrl *Controller) build(_ context.Context, _ *Param, file io.Reader) error {
-	return build(ctrl.write, file)
+func (c *Controller) build(_ context.Context, _ *Param, file io.Reader) error {
+	return build(c.write, file)
 }
 
-func (ctrl *Controller) write(s string) {
-	ctrl.Writer.Write(s)
+func (c *Controller) write(s string) {
+	c.Writer.Write(s)
 }
