@@ -44,7 +44,7 @@ func parseLine(txt string, state *State) (string, error) {
 		}
 		a := state.Prev + (t-state.ActualPrev-state.Delta)/state.Speed
 		if a <= state.Prev {
-			return "", fmt.Errorf("trimmed time must be lower than interval: %w", err)
+			return "", errors.New("trimmed time must be lower than interval")
 		}
 		state.Prev = a
 		state.ActualPrev = t
